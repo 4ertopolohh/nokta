@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e6f07b">
+  <meta name="description" content="НОКТА — мебельная студия в Казани. Кухни, шкафы, гардеробные и мебель для ванной по индивидуальным размерам. Обсудите проект и посетите шоурум на Ямашева, 93.">
+  <title>НОКТА — мебель без шаблонов. Студия мебели в Казани</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Geologica:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#252b26;--cream:#fffaf0;--lime:#e6f07b;--orange:#fc745b;--peach:#f8c2ad;--mint:#b8e6d7;--lav:#ccc4f0;--muted:#666b62;--line:rgba(37,43,38,.2);--heading:'Dela Gothic One',Georgia,serif;--body:'Geologica',Georgia,serif;--ease:cubic-bezier(.2,.8,.2,1)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;background:var(--cream);color:var(--ink);font:400 16px/1.52 var(--body);-webkit-font-smoothing:antialiased}
+    body.lock{overflow:hidden}
+    button,input,textarea{font:inherit}
+    button{cursor:pointer}
+    a{color:inherit;text-decoration:none}
+    button,a,input,textarea{ -webkit-tap-highlight-color:transparent }
+    :focus-visible{outline:3px solid #5441d2;outline-offset:4px}
+    ::selection{background:var(--orange);color:var(--ink)}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    h1,h2,h3,p{margin:0}
+    h1,h2,h3{font-family:var(--heading);font-weight:400;letter-spacing:-.04em}
+    .wrap{width:min(100% - 88px,1490px);margin-inline:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .btn{min-height:54px;display:inline-flex;align-items:center;justify-content:center;gap:13px;padding:14px 27px;border:2px solid var(--ink);border-radius:99px;font:600 14px/1.25 var(--body);text-align:center;transition:background .25s,color .25s,transform .3s var(--ease),box-shadow .3s var(--ease)}
+    .btn:hover{transform:translateY(-3px);box-shadow:4px 5px 0 var(--ink)}
+    .btn:active{transform:translateY(1px);box-shadow:none}
+    .btn-dark{background:var(--ink);color:var(--cream)}
+    .btn-dark:hover{background:#444a43}
+    .btn-light{background:var(--cream);color:var(--ink)}
+    .btn-ghost{background:transparent}
+    .eyebrow{font-size:12px;font-weight:700;line-height:1.4;letter-spacing:.06em;text-transform:uppercase}
+    .smallcopy{font-size:12px;color:var(--muted);line-height:1.5}
+    .header{position:relative;z-index:50;background:var(--cream);border-bottom:2px solid var(--ink)}
+    .header-inner{height:83px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font:400 29px/1 var(--heading);letter-spacing:-.055em;white-space:nowrap}
+    .logo span{color:#e95642}
+    .nav{display:flex;gap:clamp(13px,2.6vw,38px);align-items:center;margin:auto}
+    .nav a{font-size:13px;font-weight:600;position:relative;white-space:nowrap}
+    .nav a:after{content:'';position:absolute;bottom:-7px;left:0;right:100%;height:2px;background:var(--ink);transition:right .2s}
+    .nav a:hover:after{right:0}
+    .head-contact{display:flex;align-items:center;gap:17px}
+    .head-phone{font-size:13px;font-weight:700;white-space:nowrap}
+    .head-contact .btn{min-height:42px;padding:10px 17px;font-size:12px}
+    .menu-btn{width:45px;height:45px;border:2px solid var(--ink);background:transparent;border-radius:50%;display:none;align-items:center;justify-content:center;flex-direction:column;gap:6px;flex-shrink:0}
+    .menu-btn span{height:2px;width:19px;background:var(--ink);transition:transform .2s,opacity .2s}
+    .menu-btn[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+    .menu-btn[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+    .hero{background:var(--lime);overflow:hidden;position:relative;border-bottom:2px solid var(--ink)}
+    .hero-top{padding-top:50px;padding-bottom:44px}
+    .hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:45px;margin-bottom:26px}
+    .hero-facts{font-size:12px;font-weight:700;text-align:right;max-width:200px;line-height:1.6}
+    .hero h1{font-size:clamp(47px,7.6vw,130px);line-height:1.05;letter-spacing:-.064em;max-width:1370px}
+    .hero h1 em{font-family:var(--body);font-weight:300;font-style:normal;letter-spacing:-.07em}
+    .hero-bottomline{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-top:34px}
+    .hero-bottomline p{font-size:clamp(16px,1.5vw,22px);max-width:520px;line-height:1.38}
+    .hero-bottomline .btn{flex-shrink:0}
+    .hero-images{display:grid;grid-template-columns:1.24fr .7fr .72fr;min-height:350px;height:clamp(350px,32vw,485px);border-top:2px solid var(--ink)}
+    .hero-img{position:relative;overflow:hidden;border-right:2px solid var(--ink);background:#ddd4c3}
+    .hero-img:last-child{border-right:0}
+    .hero-img img{transition:transform 1s var(--ease)}
+    .hero-img:hover img{transform:scale(1.065)}
+    .hero-img:nth-child(2){margin-top:57px;border-top:2px solid var(--ink)}
+    .hero-img:nth-child(3){margin-top:118px;border-top:2px solid var(--ink)}
+    .photo-caption{position:absolute;bottom:15px;left:15px;right:15px;display:inline-flex;width:fit-content;max-width:calc(100% - 30px);padding:7px 11px;background:rgba(255,250,240,.93);color:#333;font-size:10px;font-weight:600;border-radius:20px}
+    .hero-strip{border-top:2px solid var(--ink);background:var(--orange)}
+    .hero-strip .wrap{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:23px}
+    .hero-strip strong{font-family:var(--heading);font-size:18px;letter-spacing:-.04em}
+    .hero-strip a{font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+    .section{padding:clamp(70px,9vw,132px) 0}
+    .section-intro{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:45px}
+    .section-intro h2{font-size:clamp(35px,4.6vw,70px);line-height:1.14;max-width:750px}
+    .section-intro p{width:min(350px,100%);font-size:15px;line-height:1.75;color:#535b52}
+    .room-nav{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);margin-bottom:26px;border-radius:20px;overflow:hidden}
+    .room-nav button{padding:22px 13px;border:0;border-right:2px solid var(--ink);background:var(--cream);font-weight:700;text-align:center;transition:background .2s,color .2s}
+    .room-nav button:last-child{border-right:0}
+    .room-nav button:hover{background:#fce0d2}
+    .room-nav button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
+    .gallery{display:grid;grid-template-columns:1.23fr .83fr .83fr;gap:14px;align-items:stretch}
+    .gallery-item{min-width:0;position:relative;overflow:hidden;border-radius:16px;background:#dbdbd0;aspect-ratio:1/1.12;border:2px solid var(--ink);outline-offset:2px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+    .gallery-item:first-child{grid-row:span 2;aspect-ratio:auto}
+    .gallery-item:nth-child(4){grid-column:2/4;aspect-ratio:2.05/1}
+    .gallery-item:hover{transform:translateY(-4px);box-shadow:4px 6px 0 var(--ink)}
+    .gallery-item img{transition:transform .6s var(--ease)}
+    .gallery-item:hover img{transform:scale(1.06)}
+    .gallery-item .img-shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,26,20,.76),transparent 47%)}
+    .gallery-info{position:absolute;left:22px;bottom:20px;right:18px;color:#fff}
+    .gallery-info strong{display:block;font-size:clamp(17px,1.8vw,27px);font-family:var(--heading);font-weight:400;line-height:1.2;letter-spacing:-.045em}
+    .gallery-info span{font-size:11px;display:block;margin-top:9px;color:#f2f2e9}
+    .gallery-item[hidden]{display:none}
+    .gallery-empty{padding:35px;border:2px dashed #777;border-radius:15px}
+    .gallery-note{margin-top:20px;color:var(--muted);font-size:12px;max-width:690px}
+    .about{background:var(--mint);border-block:2px solid var(--ink);overflow:hidden}
+    .about-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}
+    .about h2{font-size:clamp(38px,5vw,76px);line-height:1.15;margin:18px 0 24px}
+    .about p{font-size:16px;line-height:1.83;max-width:545px}
+    .about .btn{margin-top:33px}
+    .about-photo{height:550px;position:relative;transform:rotate(2.5deg);border:9px solid var(--cream);box-shadow:13px 14px 0 var(--ink);border-radius:4px;max-width:650px}
+    .about-photo img{object-position:center}
+    .about-photo .photo-caption{transform:rotate(-2.5deg);bottom:18px}
+    .materials .section-intro{margin-bottom:37px}
+    .material-panel{background:#e3d9fa;border:2px solid var(--ink);border-radius:27px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+    .material-main{padding:clamp(30px,5vw,70px);display:flex;flex-direction:column;justify-content:space-between;min-height:450px}
+    .material-main h3{font-size:clamp(28px,3.2vw,52px);line-height:1.14;margin-top:14px}
+    .material-main p{max-width:340px;font-size:15px;line-height:1.75;color:#4e485a;margin-top:18px}
+    .material-options{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .material-options button{border:2px solid var(--ink);background:var(--cream);color:var(--ink);border-radius:40px;padding:10px 18px;font-weight:600;font-size:13px;transition:background .25s,transform .25s}
+    .material-options button:hover{transform:translateY(-2px)}
+    .material-options button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
+    .material-swatch{background:#c7b39b;border-left:2px solid var(--ink);padding:35px;display:flex;flex-direction:column;justify-content:space-between;transition:background .35s}
+    .swatch-center{font:400 clamp(35px,4.6vw,72px)/1.08 var(--heading);letter-spacing:-.06em;max-width:540px;overflow-wrap:anywhere}
+    .swatch-footer{display:flex;align-items:end;justify-content:space-between;gap:20px;font-size:12px;font-weight:600}
+    .swatch-dot{width:68px;height:68px;border:2px solid var(--ink);border-radius:50%;background:rgba(255,255,255,.65);flex-shrink:0}
+    .materials .smallcopy{margin-top:17px}
+    .steps{background:var(--orange);border-block:2px solid var(--ink)}
+    .steps h2{font-size:clamp(36px,4.5vw,68px);line-height:1.16;max-width:900px;margin:0 0 42px}
+    .step-line{display:grid;grid-template-columns:100px 1fr 1fr;gap:28px;align-items:start;padding:27px 0;border-top:2px solid var(--ink)}
+    .step-line:last-child{border-bottom:2px solid var(--ink)}
+    .step-number{font:400 42px/1 var(--heading)}
+    .step-line h3{font-size:clamp(18px,2vw,29px);line-height:1.3}
+    .step-line p{max-width:470px;font-size:15px;line-height:1.75}
+    .faq-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:75px}
+    .faq h2{font-size:clamp(37px,4vw,60px);line-height:1.15}
+    .faq .summary{color:var(--muted);font-size:15px;line-height:1.7;margin-top:18px}
+    .faq details{border-bottom:2px solid var(--ink);padding:19px 0}
+    .faq details:first-child{border-top:2px solid var(--ink)}
+    .faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;font-size:17px;font-weight:650;line-height:1.5}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:'';width:13px;height:13px;flex-shrink:0;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .25s}
+    .faq details[open] summary::after{transform:rotate(225deg)}
+    .faq details p{max-width:650px;padding:14px 35px 3px 0;color:#50574f;font-size:14px;line-height:1.8}
+    .contact-section{background:var(--ink);color:var(--cream);padding:clamp(75px,8vw,125px) 0}
+    .contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:start}
+    .contact-aside{position:sticky;top:38px}
+    .contact-aside h2{font-size:clamp(38px,4.6vw,72px);line-height:1.15;margin:17px 0 27px}
+    .contact-aside>p{font-size:16px;line-height:1.75;max-width:385px;color:#d2d7cd}
+    .contact-address{margin-top:50px;padding-top:22px;border-top:1px solid #666e63}
+    .contact-address p{font-size:14px;line-height:1.85;margin:8px 0}
+    .contact-address a{text-decoration:underline;text-underline-offset:4px}
+    .form-card{background:var(--cream);color:var(--ink);padding:clamp(22px,4.3vw,58px);border-radius:25px}
+    .form-progress{display:flex;align-items:center;gap:8px;margin-bottom:26px}
+    .progress-node{height:7px;background:#d7d7c9;border-radius:20px;flex:1;transition:background .3s}
+    .progress-node.active{background:var(--orange)}
+    .step-head{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:27px}
+    .step-head h3{font-size:clamp(24px,2.8vw,39px);line-height:1.25}
+    .step-head span{font-size:12px;color:var(--muted);white-space:nowrap}
+    .form-step[hidden]{display:none}
+    .field{margin-bottom:20px}
+    .field label,.field .field-label{display:block;font-size:13px;font-weight:700;margin-bottom:9px}
+    .field input:not([type=file]),.field textarea{width:100%;border:2px solid #adb2a5;border-radius:12px;background:#fffdf6;padding:15px 17px;min-height:52px;outline:0;transition:border-color .2s,box-shadow .2s;color:var(--ink)}
+    .field textarea{min-height:125px;resize:vertical}
+    .field input:focus,.field textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(230,240,123,.8)}
+    .field.invalid input,.field.invalid textarea{border-color:#b92d28}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .help{font-size:11px;color:#64695e;margin-top:7px}
+    .error{min-height:0;font-size:12px;color:#a82722;font-weight:600;margin-top:5px}
+    .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+    .choice{padding:19px 14px;min-height:68px;border:2px solid #c2c6ba;border-radius:12px;text-align:left;background:#fffdf6;font-weight:700;transition:background .2s,border-color .2s,transform .2s}
+    .choice:hover{border-color:var(--ink);transform:translateY(-2px)}
+    .choice[aria-pressed=true]{background:var(--lime);border-color:var(--ink)}
+    .picker{position:relative}
+    .picker-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:15px 17px;min-height:54px;background:#fffdf6;border:2px solid #adb2a5;border-radius:12px;text-align:left;font-weight:550;gap:10px}
+    .picker-trigger:after{content:'';width:10px;height:10px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg) translateY(-3px);flex-shrink:0;transition:transform .2s}
+    .picker-trigger[aria-expanded=true]:after{transform:rotate(225deg) translate(-2px,-1px)}
+    .picker-menu{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 5px);max-height:260px;overflow:auto;margin:0;padding:6px;list-style:none;background:#fffdf6;border:2px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink)}
+    .picker-menu[hidden]{display:none}
+    .picker-menu [role=option]{padding:11px 13px;border-radius:7px;font-size:14px;cursor:pointer}
+    .picker-menu [role=option]:hover,.picker-menu [role=option].active{background:#e7edcc}
+    .picker-menu [role=option][aria-selected=true]{font-weight:700;background:var(--lime)}
+    .upload{display:block;border:2px dashed #8d9485;border-radius:14px;background:#f7f7ea;min-height:130px;padding:20px;text-align:center;cursor:pointer;transition:background .25s,border-color .25s}
+    .upload:hover,.upload.drag{background:#e5f0d5;border-color:var(--ink)}
+    .upload strong{display:block;font-size:15px;margin-top:7px}
+    .upload span{display:block;font-size:12px;color:#5e6559;margin-top:6px}
+    .upload input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+    .files-list{margin-top:13px;display:flex;flex-wrap:wrap;gap:8px}
+    .file-chip{border:1px solid var(--ink);border-radius:40px;font-size:11px;padding:7px 10px;display:flex;align-items:center;gap:9px;background:#fffdf6;max-width:100%}
+    .file-chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:150px}
+    .file-chip button{border:none;padding:0 3px;background:none;text-decoration:underline;font-size:11px;font-weight:700}
+    .consent{display:flex;align-items:flex-start;gap:12px;font-size:12px;line-height:1.6;cursor:pointer;margin-top:15px}
+    .consent input{appearance:none;margin:1px 0 0;width:21px;height:21px;border:2px solid var(--ink);border-radius:5px;flex-shrink:0;cursor:pointer;background:#fffdf6}
+    .consent input:checked{background:var(--lime);box-shadow:inset 0 0 0 4px var(--ink)}
+    .form-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .form-actions .btn{min-width:130px}
+    .form-actions .btn[hidden]{display:none}
+    .demo-note{font-size:11px;color:#60665b;line-height:1.6;margin-top:17px}
+    .result{border:2px solid var(--ink);padding:26px;border-radius:15px;background:var(--lime)}
+    .result[hidden]{display:none}
+    .result h3{font-size:28px;line-height:1.2;margin-bottom:16px}
+    .result p{line-height:1.7;font-size:14px;margin-bottom:19px}
+    .result a{text-decoration:underline;text-underline-offset:4px;font-weight:700}
+    .footer{background:var(--lime);padding:45px 0;border-top:2px solid var(--ink)}
+    .footer-top{display:flex;justify-content:space-between;gap:20px;align-items:end;padding-bottom:36px;border-bottom:2px solid var(--ink)}
+    .footer-name{font:400 clamp(47px,9.2vw,147px)/1 var(--heading);letter-spacing:-.07em}
+    .footer-top p{font-size:13px;text-align:right;line-height:1.7;max-width:300px}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding-top:24px;flex-wrap:wrap;font-size:12px}
+    .footer-bottom a{text-decoration:underline;text-underline-offset:3px}
+    .lightbox{border:0;padding:0;background:transparent;color:#fff;max-width:min(94vw,1040px);max-height:95vh;width:100%;margin:auto;overflow:visible}
+    .lightbox::backdrop{background:rgba(18,22,18,.9)}
+    .lightbox-inner{background:var(--ink);border-radius:16px;overflow:hidden}
+    .lightbox img{max-height:75vh;width:100%;object-fit:contain;background:#242424}
+    .lightbox-foot{padding:17px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .lightbox-foot p{font-size:14px}
+    .close-lightbox{background:var(--lime);color:var(--ink);padding:10px 16px;border:0;border-radius:30px;font-weight:700}
+    .js .reveal{opacity:0;transform:translateY(25px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .js .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(min-width:1600px){.hero h1{font-size:130px}}
+    @media(max-width:1200px){.nav{gap:14px}.nav a{font-size:12px}.head-contact .head-phone{display:none}.wrap{width:min(100% - 56px,1490px)}}
+    @media(max-width:900px){.header-inner{height:74px}.nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);padding:22px 28px 30px;border-bottom:2px solid var(--ink);flex-direction:column;align-items:stretch;gap:19px;box-shadow:0 16px 25px rgba(0,0,0,.09)}.nav.open{display:flex}.nav a{font-size:16px}.menu-btn{display:flex}.head-contact .btn{display:none}.hero h1{font-size:clamp(46px,8vw,77px)}.hero-images{height:310px;min-height:310px}.hero-img:nth-child(3){margin-top:65px}.gallery{grid-template-columns:1fr 1fr}.gallery-item:first-child{grid-row:auto;aspect-ratio:1/1.12}.gallery-item:nth-child(4){grid-column:auto;aspect-ratio:1/1.12}.gallery-item:last-child{display:none}.section-intro{align-items:start;flex-direction:column;gap:21px}.about-layout{gap:38px}.about-photo{height:400px}.faq-layout{gap:34px}.contact-layout{gap:34px}}
+    @media(max-width:720px){.wrap{width:min(100% - 34px,1490px)}.hero-top{padding-top:30px}.hero-row{margin-bottom:23px;gap:18px}.hero-facts{font-size:10px;max-width:125px}.hero h1{font-size:clamp(38px,8.3vw,65px)}.hero-bottomline{align-items:start;flex-direction:column;gap:21px;margin-top:27px}.hero-bottomline p{font-size:16px}.hero-images{height:315px;min-height:315px;grid-template-columns:1.4fr .8fr}.hero-img:nth-child(3){display:none}.hero-img:nth-child(2){margin-top:55px}.hero-strip .wrap{padding-block:14px;min-height:60px;align-items:start;flex-direction:column;gap:5px}.hero-strip strong{font-size:15px}.hero-strip a{font-size:12px}.section{padding:66px 0}.section-intro h2{font-size:clamp(32px,7.3vw,49px)}.room-nav{grid-template-columns:1fr 1fr}.room-nav button{min-height:58px;padding:11px 8px;font-size:12px}.room-nav button:nth-child(2){border-right:0}.room-nav button:nth-child(-n+2){border-bottom:2px solid var(--ink)}.gallery{gap:12px}.gallery-item{aspect-ratio:1/1.34!important}.gallery-info{left:13px;bottom:14px;right:10px}.gallery-info strong{font-size:17px}.gallery-info span{font-size:10px}.about-layout{grid-template-columns:1fr}.about-photo{height:410px;max-width:calc(100% - 14px);margin:15px 8px 14px 0}.material-panel{grid-template-columns:1fr}.material-main{min-height:340px}.material-swatch{border-left:0;border-top:2px solid var(--ink);min-height:310px;padding:27px}.step-line{grid-template-columns:48px 1fr;gap:15px}.step-line p{grid-column:2}.step-number{font-size:27px}.faq-layout,.contact-layout{grid-template-columns:1fr}.contact-aside{position:static}.contact-address{margin-top:26px}.footer-top{align-items:start;flex-direction:column}.footer-top p{text-align:left}.footer-bottom{align-items:start;flex-direction:column}}
+    @media(max-width:420px){.logo{font-size:24px}.header-inner{gap:8px}.menu-btn{width:42px;height:42px}.hero-row{flex-direction:column;gap:7px}.hero-facts{text-align:left;max-width:none}.hero h1{font-size:clamp(33px,10.5vw,46px);overflow-wrap:normal}.hero-images{height:255px;min-height:255px;grid-template-columns:1fr .55fr}.hero-img:nth-child(2){margin-top:38px}.photo-caption{font-size:9px;left:8px;bottom:8px;padding:5px 7px;max-width:calc(100% - 16px)}.btn{min-height:49px;padding:12px 19px;font-size:12px}.section-intro h2{font-size:31px}.gallery{grid-template-columns:1fr}.gallery-item{aspect-ratio:1.14/1!important}.gallery-item:last-child{display:block}.gallery-info strong{font-size:19px}.material-options button{padding:8px 11px;font-size:11px}.swatch-center{font-size:42px}.form-card{padding:22px 17px}.form-grid{grid-template-columns:1fr;gap:0}.choice-grid{grid-template-columns:1fr 1fr;gap:8px}.choice{min-height:58px;padding:10px;font-size:12px}.step-head{gap:10px}.step-head h3{font-size:23px}.form-actions .btn{min-width:100px}.footer-name{font-size:clamp(42px,16vw,70px)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.js .reveal{opacity:1;transform:none}}
+  </style>
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="НОКТА — на главную">НОКТА<span>.</span></a>
+      <nav class="nav" id="mainNav" aria-label="Главное меню">
+        <a href="#inspiration">Пространства</a><a href="#approach">Почему на заказ</a><a href="#materials">Палитра</a><a href="#steps">Как работаем</a><a href="#form">Ваш проект</a><a href="#contacts">Контакты</a>
+      </nav>
+      <div class="head-contact"><a class="head-phone" href="tel:+79950092602">+7 995 009-26-02</a><a class="btn btn-dark" href="#form">Обсудить проект</a></div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="wrap hero-top">
+        <div class="hero-row"><p class="eyebrow">Мебельная студия НОКТА · Казань</p><p class="hero-facts">Кухни, шкафы, гардеробные и мебель для ванной на заказ</p></div>
+        <h1 id="heroTitle">Не по шаблону.<br><em>По вам.</em></h1>
+        <div class="hero-bottomline"><p>Мебель, которая подстраивается под вашу жизнь. От первого эскиза до того самого места для каждой вещи.</p><a href="#form" class="btn btn-dark">Придумать свою мебель</a></div>
+      </div>
+      <div class="hero-images" aria-label="Иллюстративные фотографии интерьерных решений">
+        <div class="hero-img"><img src="https://images.pexels.com/photos/19878539/pexels-photo-19878539.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800" alt="Светлая современная кухня с мебелью по всей высоте стены" fetchpriority="high"><span class="photo-caption">Интерьерный референс, не работа НОКТА</span></div>
+        <div class="hero-img"><img src="https://images.pexels.com/photos/7534288/pexels-photo-7534288.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Система хранения с секциями и деревянными элементами" fetchpriority="high"><span class="photo-caption">Референс</span></div>
+        <div class="hero-img"><img src="https://images.pexels.com/photos/31238723/pexels-photo-31238723.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Современная кухня с деревянными шкафами" loading="lazy"><span class="photo-caption">Референс</span></div>
+      </div>
+      <div class="hero-strip"><div class="wrap"><strong>Живёте по-своему? И мебель пусть будет такой же.</strong><a href="#inspiration">Найти идеи для комнаты</a></div></div>
+    </section>
+
+    <section class="section" id="inspiration" aria-labelledby="galleryTitle">
+      <div class="wrap">
+        <div class="section-intro reveal"><h2 id="galleryTitle">Ваше пространство.<br>Ваши правила.</h2><p>Кухня для долгих завтраков, шкаф без лишних полок, ванная, где всё под рукой. Начните с того, что вам близко.</p></div>
+        <div class="room-nav reveal" role="group" aria-label="Показать идеи по помещению">
+          <button type="button" data-room="all" aria-pressed="true">Все идеи</button><button type="button" data-room="kitchen" aria-pressed="false">Кухни</button><button type="button" data-room="storage" aria-pressed="false">Хранение</button><button type="button" data-room="bath" aria-pressed="false">Ванные</button>
+        </div>
+        <div class="gallery reveal" id="gallery">
+          <button type="button" class="gallery-item" data-kind="kitchen" data-title="Кухня, в которой легко жить" data-src="https://images.pexels.com/photos/31238723/pexels-photo-31238723.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800"><img src="https://images.pexels.com/photos/31238723/pexels-photo-31238723.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1050" alt="Кухня с деревянными фасадами" loading="lazy"><span class="img-shade"></span><span class="gallery-info"><strong>Кухня, в которой легко жить</strong><span>Вдохновение · не проект НОКТА</span></span></button>
+          <button type="button" class="gallery-item" data-kind="storage" data-title="Хранение без хаоса" data-src="https://images.pexels.com/photos/7534288/pexels-photo-7534288.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800"><img src="https://images.pexels.com/photos/7534288/pexels-photo-7534288.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=950" alt="Гардеробная с открытыми секциями и полками" loading="lazy"><span class="img-shade"></span><span class="gallery-info"><strong>Хранение без хаоса</strong><span>Вдохновение · не проект НОКТА</span></span></button>
+          <button type="button" class="gallery-item" data-kind="bath" data-title="Ванная со своим характером" data-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=960&amp;q=83" alt="Современная ванная с натуральными оттенками" loading="lazy"><span class="img-shade"></span><span class="gallery-info"><strong>Ванная со своим характером</strong><span>Вдохновение · не проект НОКТА</span></span></button>
+          <button type="button" class="gallery-item" data-kind="storage" data-title="Уголок для каждой вещи" data-src="https://images.pexels.com/photos/6580380/pexels-photo-6580380.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1800"><img src="https://images.pexels.com/photos/6580380/pexels-photo-6580380.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Гардеробная со шкафами и местом для хранения" loading="lazy"><span class="img-shade"></span><span class="gallery-info"><strong>Уголок для каждой вещи</strong><span>Вдохновение · не проект НОКТА</span></span></button>
+          <button type="button" class="gallery-item" data-kind="kitchen" data-title="Детали, которые решают всё" data-src="https://images.pexels.com/photos/19846364/pexels-photo-19846364.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1700"><img src="https://images.pexels.com/photos/19846364/pexels-photo-19846364.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=950" alt="Лаконичные кухонные шкафы и продуманная столешница" loading="lazy"><span class="img-shade"></span><span class="gallery-info"><strong>Детали, которые решают всё</strong><span>Вдохновение · не проект НОКТА</span></span></button>
+        </div>
+        <p class="gallery-note">Фотографии в этом разделе — интерьерные референсы из фотобанков, демонстрирующие возможные идеи. Это не реальные выполненные заказы студии НОКТА. Портфолио компании можно посмотреть на её <a href="https://noktamebel.clients.site/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">публичной странице</a>.</p>
+      </div>
+    </section>
+
+    <section class="section about" id="approach" aria-labelledby="aboutTitle"><div class="wrap about-layout"><div class="reveal"><p class="eyebrow">Меньше компромиссов в планировке</p><h2 id="aboutTitle">Не «как получится».<br>А как вам удобно.</h2><p>В индивидуальной мебели важны не только фасады. Где поставить розетку? Сколько нужно ящиков? Как использовать нишу, которую обычно оставляют пустой? В НОКТА можно обсудить эти вопросы с дизайнером и посмотреть образцы в шоуруме.</p><a href="#form" class="btn btn-light">Рассказать о своей задаче</a></div><div class="about-photo reveal"><img src="https://images.pexels.com/photos/7005285/pexels-photo-7005285.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Продуманные элементы встроенной мебели в жилом интерьере" loading="lazy"><span class="photo-caption">Иллюстративная фотография</span></div></div></section>
+
+    <section class="section materials" id="materials" aria-labelledby="materialsTitle"><div class="wrap"><div class="section-intro reveal"><h2 id="materialsTitle">Начните с ощущения.<br>Детали подберём вместе.</h2><p>Попробуйте несколько цветовых направлений. Это игра с настроением будущего интерьера, а не каталог конкретных материалов.</p></div><div class="material-panel reveal"><div class="material-main"><div><p class="eyebrow">Интерактивная палитра</p><h3>Каким будет ваше пространство?</h3><p id="materialDesc">Спокойным, светлым, с мягким ощущением натуральных материалов.</p></div><div class="material-options" role="group" aria-label="Выбрать настроение интерьера"><button type="button" data-palette="wood" aria-pressed="true">Тёплый</button><button type="button" data-palette="clay" aria-pressed="false">Яркий</button><button type="button" data-palette="sage" aria-pressed="false">Свежий</button><button type="button" data-palette="graphite" aria-pressed="false">Графичный</button></div></div><div class="material-swatch" id="materialSwatch"><p class="eyebrow">Цветовая идея</p><div class="swatch-center" id="swatchName">Свой уютный угол</div><div class="swatch-footer"><span>От идеи — к образцам в шоуруме</span><span class="swatch-dot" aria-hidden="true"></span></div></div></div><p class="smallcopy">Наличие конкретных оттенков, плит, фасадов и фурнитуры уточняется у студии.</p></div></section>
+
+    <section class="section steps" id="steps" aria-labelledby="stepsTitle"><div class="wrap"><h2 id="stepsTitle" class="reveal">Сначала поймём вас.<br>Потом начнём проект.</h2><div class="step-line reveal"><span class="step-number">1</span><h3>Расскажите о помещении</h3><p>Покажите планировку или фотографии, поделитесь размерами, желаниями и тем, чего не хватает в готовой мебели.</p></div><div class="step-line reveal"><span class="step-number">2</span><h3>Обсудите проект и материалы</h3><p>С дизайнером можно продумать наполнение, внешний вид и детали. В шоуруме — познакомиться с образцами.</p></div><div class="step-line reveal"><span class="step-number">3</span><h3>Согласуйте детали изготовления</h3><p>После расчёта и согласования выбранных решений уточняются комплектация, стоимость и условия производства и установки.</p></div></div></section>
+
+    <section class="section faq" id="faq" aria-labelledby="faqTitle"><div class="wrap faq-layout"><div class="reveal"><h2 id="faqTitle">Хороший вопрос — начало хорошего проекта.</h2><p class="summary">Собрали то, что полезно знать до первого разговора со студией.</p></div><div class="reveal"><details><summary>Можно прийти, если ещё нет точных размеров?</summary><p>Да, обсудить пожелания можно и без готовой планировки. На публичной странице НОКТА указан бесплатный замер — возможность и условия выезда лучше уточнить при обращении.</p></details><details><summary>Можно сделать только шкаф или мебель в ванную?</summary><p>Да. Среди направлений студии — кухни, шкафы, системы хранения и мебель для ванной по индивидуальным размерам.</p></details><details><summary>Вы покажете реальные материалы?</summary><p>На странице студии указан фирменный салон с большим выбором цветов и материалов. Образцы можно обсудить при посещении шоурума.</p></details><details><summary>От чего зависит стоимость мебели?</summary><p>На расчёт обычно влияют габариты, выбранный материал, фасады, наполнение, фурнитура, сложность конструкции и монтаж. Точную стоимость проекта сообщит студия после обсуждения деталей.</p></details></div></div></section>
+
+    <section class="contact-section" id="form" aria-labelledby="formTitle"><div class="wrap contact-layout"><div class="contact-aside reveal"><p class="eyebrow">Обсудим вашу идею</p><h2 id="formTitle">Ваш проект начинается здесь.</h2><p>Три коротких шага: выберите, что хотите сделать, добавьте размеры или планировку и укажите контакт.</p><div class="contact-address" id="contacts"><p class="eyebrow">Прийти и посмотреть материалы</p><p>Казань, проспект Ямашева, 93</p><p><a href="tel:+79950092602">+7 (995) 009-26-02</a></p><p><a href="https://wa.me/79950092602" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a> · <a href="https://noktamebel.clients.site/" target="_blank" rel="noopener noreferrer">Telegram на странице студии</a></p></div></div><div class="form-card reveal" id="formCard"><div class="form-progress" aria-label="Прогресс заявки"><span class="progress-node active"></span><span class="progress-node"></span><span class="progress-node"></span></div><form id="requestForm" novalidate><div class="form-step" data-step="0"><div class="step-head"><h3>Что создаём?</h3><span>Шаг 1 из 3</span></div><div class="field"><span class="field-label">Выберите вид мебели *</span><div class="choice-grid" id="furnitureChoices" role="group" aria-label="Вид мебели"><button type="button" class="choice" data-choice="Кухня" aria-pressed="false">Кухню</button><button type="button" class="choice" data-choice="Шкаф или гардеробная" aria-pressed="false">Шкаф или гардеробную</button><button type="button" class="choice" data-choice="Мебель для ванной" aria-pressed="false">Мебель в ванную</button><button type="button" class="choice" data-choice="Другое" aria-pressed="false">Другое</button></div><p class="error" id="choiceError" aria-live="polite"></p></div><div class="field"><label for="dimensions">Размеры или площадь (необязательно)</label><input type="text" id="dimensions" name="dimensions" maxlength="160" placeholder="Например, стена 320 × 240 см"><p class="help">Можно указать приблизительные размеры — их уточнят позднее.</p></div><div class="field"><label class="field-label" id="timingLabel">На каком этапе ваш проект?</label><div class="picker" id="timingPicker"><button type="button" class="picker-trigger" id="timingTrigger" aria-haspopup="listbox" aria-controls="timingOptions" aria-expanded="false" aria-labelledby="timingLabel timingValue"><span id="timingValue">Пока изучаю варианты</span></button><ul class="picker-menu" id="timingOptions" role="listbox" tabindex="-1" aria-label="Этап проекта" hidden><li role="option" id="timing-0" data-value="Пока изучаю варианты" aria-selected="true" tabindex="-1">Пока изучаю варианты</li><li role="option" id="timing-1" data-value="Есть размеры или эскиз" aria-selected="false" tabindex="-1">Есть размеры или эскиз</li><li role="option" id="timing-2" data-value="Готов обсудить замер" aria-selected="false" tabindex="-1">Готов обсудить замер</li></ul></div></div></div>
+        <div class="form-step" data-step="1" hidden><div class="step-head"><h3>Покажите идею</h3><span>Шаг 2 из 3</span></div><div class="field"><label for="projectNotes">Что важно в вашей мебели?</label><textarea id="projectNotes" name="projectNotes" maxlength="1600" placeholder="Расскажите о планировке, количестве хранения, желаемом стиле и других деталях"></textarea></div><div class="field"><span class="field-label">Добавьте планировку или фотографии</span><label class="upload" id="uploadArea" for="projectFiles"><strong>Выбрать файлы или перетащить сюда</strong><span>JPG, PNG, WEBP, PDF · до 10 МБ за файл · максимум 5 файлов</span><input id="projectFiles" type="file" accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf" multiple></label><div class="files-list" id="filesList" aria-live="polite"></div><p class="error" id="filesError" aria-live="polite"></p></div></div>
+        <div class="form-step" data-step="2" hidden><div class="step-head"><h3>Как связаться?</h3><span>Шаг 3 из 3</span></div><div class="field" id="nameField"><label for="clientName">Ваше имя *</label><input id="clientName" name="clientName" type="text" autocomplete="name" maxlength="90" required placeholder="Как к вам обращаться"><p class="error" id="nameError" aria-live="polite"></p></div><div class="field" id="phoneField"><label for="clientPhone">Телефон *</label><input id="clientPhone" name="clientPhone" type="tel" autocomplete="tel" inputmode="tel" maxlength="24" required placeholder="+7 (999) 000-00-00"><p class="error" id="phoneError" aria-live="polite"></p></div><label class="consent"><input type="checkbox" id="consent" required><span>Согласен(на) на обработку указанных данных в рамках демонстрации интерфейса. В реальную компанию информация не передаётся.</span></label><p class="error" id="consentError" aria-live="polite"></p></div>
+        <div class="form-actions"><button type="button" class="btn btn-ghost" id="prevStep" hidden>Назад</button><button type="button" class="btn btn-dark" id="nextStep">Продолжить</button><button type="submit" class="btn btn-dark" id="submitRequest" hidden>Проверить заявку</button></div><p class="demo-note">Это демонстрационный макет сайта. Данные и файлы не отправляются. Для настоящей консультации позвоните студии по указанному номеру.</p></form><div class="result" id="formResult" role="status" aria-live="polite" hidden><h3>Макет заявки готов!</h3><p id="resultText">Вы заполнили форму. Это демонстрация — данные не отправлены в НОКТА. Чтобы обсудить проект в действительности, свяжитесь со студией.</p><a href="tel:+79950092602">Позвонить: +7 995 009-26-02</a><div style="margin-top:20px"><button type="button" class="btn btn-light" id="restartForm">Создать ещё одну заявку</button></div></div></div></div></section>
+  </main>
+  <footer class="footer"><div class="wrap"><div class="footer-top"><a href="#top" class="footer-name" aria-label="Вернуться наверх">НОКТА.</a><p>Индивидуальная мебель для вашей жизни.<br>Казань, проспект Ямашева, 93</p></div><div class="footer-bottom"><span>ООО «НОКТА» · ИНН 1685017340</span><span>Демонстрационный дизайн сайта. Фотографии — интерьерные референсы.</span><a href="https://noktamebel.clients.site/" target="_blank" rel="noopener noreferrer">Действующая страница студии</a></div></div></footer>
+  <dialog class="lightbox" id="lightbox" aria-label="Просмотр интерьерного референса"><div class="lightbox-inner"><img id="lightboxImage" alt=""><div class="lightbox-foot"><div><p id="lightboxTitle"></p><p style="font-size:11px;color:#c7cabe;margin-top:5px">Иллюстративная фотография, не выполненный проект НОКТА</p></div><button class="close-lightbox" id="closeLightbox" type="button">Закрыть</button></div></div></dialog>
+  <script>
+  (() => {
+    'use strict';
+    const $ = (s,root=document) => root.querySelector(s);
+    const $$ = (s,root=document) => [...root.querySelectorAll(s)];
+    const menuBtn = $('#menuBtn'), nav = $('#mainNav');
+    const closeMenu = () => {nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','Открыть меню');};
+    menuBtn.addEventListener('click',()=>{const opened=menuBtn.getAttribute('aria-expanded')==='true';nav.classList.toggle('open',!opened);menuBtn.setAttribute('aria-expanded',String(!opened));menuBtn.setAttribute('aria-label',opened?'Открыть меню':'Закрыть меню');});
+    $$('#mainNav a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('click',e=>{if(!e.target.closest('.header'))closeMenu();});
+    window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMenu();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+    if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:.08,rootMargin:'0px 0px -30px 0px'});$$('.reveal').forEach(el=>observer.observe(el));}else{$$('.reveal').forEach(el=>el.classList.add('visible'));}
+    const roomBtns=$$('[data-room]'), galleryItems=$$('.gallery-item');
+    roomBtns.forEach(btn=>btn.addEventListener('click',()=>{roomBtns.forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));const room=btn.dataset.room;galleryItems.forEach(item=>{item.hidden=room!=='all'&&item.dataset.kind!==room;});}));
+    const lightbox=$('#lightbox'), lightboxImage=$('#lightboxImage');
+    galleryItems.forEach(item=>item.addEventListener('click',()=>{lightboxImage.src=item.dataset.src.replace(/&amp;/g,'&');lightboxImage.alt=$('img',item).alt;$('#lightboxTitle').textContent=item.dataset.title;if(typeof lightbox.showModal==='function')lightbox.showModal();}));
+    $('#closeLightbox').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+    lightbox.addEventListener('close',()=>{lightboxImage.removeAttribute('src');});
+    const palettes={wood:{color:'#c7b39b',name:'Свой уютный угол',desc:'Спокойным, светлым, с мягким ощущением натуральных материалов.'},clay:{color:'#f09e7e',name:'Чуть больше солнца',desc:'Тёплым и смелым, с яркими деталями и любимыми акцентами.'},sage:{color:'#add1b3',name:'Дышать свободно',desc:'Свежим и уравновешенным, с природным ощущением простора.'},graphite:{color:'#9aa2a1',name:'Чёткий характер',desc:'Собранным и графичным, с выразительными линиями и контрастом.'}};
+    $$('[data-palette]').forEach(btn=>btn.addEventListener('click',()=>{const p=palettes[btn.dataset.palette];$$('[data-palette]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));$('#materialSwatch').style.background=p.color;$('#swatchName').textContent=p.name;$('#materialDesc').textContent=p.desc;}));
+    const form=$('#requestForm'), steps=$$('.form-step'), nodes=$$('.progress-node');let currentStep=0, selectedKind='', timing='Пока изучаю варианты', files=[],busy=false;
+    function showStep(index){currentStep=index;steps.forEach((step,i)=>step.hidden=i!==index);nodes.forEach((n,i)=>n.classList.toggle('active',i<=index));$('#prevStep').hidden=index===0;$('#nextStep').hidden=index===2;$('#submitRequest').hidden=index!==2;$('#formCard').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}
+    function chooseKind(value){selectedKind=value;$$('[data-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.choice===value)));$('#choiceError').textContent='';}
+    $$('[data-choice]').forEach(btn=>btn.addEventListener('click',()=>chooseKind(btn.dataset.choice)));
+    function step0Valid(){if(!selectedKind){$('#choiceError').textContent='Выберите тип мебели, чтобы продолжить.';$$('[data-choice]')[0].focus();return false;}return true;}
+    $('#nextStep').addEventListener('click',()=>{if(busy)return;if(currentStep===0&&!step0Valid())return;showStep(Math.min(2,currentStep+1));});
+    $('#prevStep').addEventListener('click',()=>{if(busy)return;showStep(Math.max(0,currentStep-1));});
+    const picker=$('#timingPicker'),trigger=$('#timingTrigger'),options=$$('#timingOptions [role=option]'),listbox=$('#timingOptions');let activeOption=0;
+    function setActive(i){activeOption=(i+options.length)%options.length;options.forEach((o,j)=>o.classList.toggle('active',j===activeOption));}
+    function openPicker(){listbox.hidden=false;trigger.setAttribute('aria-expanded','true');setActive(options.findIndex(o=>o.getAttribute('aria-selected')==='true'));}
+    function closePicker(refocus=false){listbox.hidden=true;trigger.setAttribute('aria-expanded','false');if(refocus)trigger.focus();}
+    function selectOption(i){options.forEach((o,j)=>o.setAttribute('aria-selected',String(i===j)));timing=options[i].dataset.value;$('#timingValue').textContent=timing;setActive(i);closePicker(true);}
+    trigger.addEventListener('click',()=>{listbox.hidden?openPicker():closePicker();});
+    trigger.addEventListener('keydown',e=>{if(['ArrowDown','ArrowUp','Home','End','Enter',' '].includes(e.key)){e.preventDefault();if(listbox.hidden)openPicker();if(e.key==='ArrowDown')setActive(activeOption+1);if(e.key==='ArrowUp')setActive(activeOption-1);if(e.key==='Home')setActive(0);if(e.key==='End')setActive(options.length-1);if(e.key==='Enter'||e.key===' ')selectOption(activeOption);}if(e.key==='Escape')closePicker();});
+    options.forEach((o,i)=>{o.addEventListener('click',()=>selectOption(i));o.addEventListener('mouseenter',()=>setActive(i));});
+    document.addEventListener('click',e=>{if(!picker.contains(e.target))closePicker();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!listbox.hidden)closePicker(true);});
+    const inputFiles=$('#projectFiles'),fileArea=$('#uploadArea'),filesList=$('#filesList'),filesError=$('#filesError');
+    const maxSize=10*1024*1024,maxCount=5,extRe=/\.(jpg|jpeg|png|webp|pdf)$/i;
+    function renderFiles(){filesList.replaceChildren();files.forEach((file,i)=>{const chip=document.createElement('div');chip.className='file-chip';const name=document.createElement('span');name.textContent=file.name;name.title=file.name;const remove=document.createElement('button');remove.type='button';remove.textContent='Убрать';remove.setAttribute('aria-label',`Убрать ${file.name}`);remove.addEventListener('click',()=>{files.splice(i,1);renderFiles();});chip.append(name,remove);filesList.append(chip);});}
+    function addFiles(incoming){filesError.textContent='';const rejected=[];for(const file of incoming){if(files.length>=maxCount){rejected.push('Не более 5 файлов.');break;}if(!extRe.test(file.name)){rejected.push(`${file.name}: неподдерживаемый формат.`);continue;}if(file.size>maxSize){rejected.push(`${file.name}: размер больше 10 МБ.`);continue;}if(!files.some(f=>f.name===file.name&&f.size===file.size&&f.lastModified===file.lastModified))files.push(file);}if(rejected.length)filesError.textContent=rejected.join(' ');renderFiles();}
+    inputFiles.addEventListener('change',()=>{addFiles([...inputFiles.files]);inputFiles.value='';});
+    ['dragenter','dragover'].forEach(ev=>fileArea.addEventListener(ev,e=>{e.preventDefault();fileArea.classList.add('drag');}));
+    ['dragleave','drop'].forEach(ev=>fileArea.addEventListener(ev,e=>{e.preventDefault();fileArea.classList.remove('drag');}));
+    fileArea.addEventListener('drop',e=>{if(e.dataTransfer?.files?.length)addFiles([...e.dataTransfer.files]);});
+    const nameInput=$('#clientName'),phoneInput=$('#clientPhone'),consent=$('#consent');
+    function setFieldError(id,error){$(`#${id}Field`).classList.toggle('invalid',Boolean(error));$(`#${id}Error`).textContent=error;}
+    function validContact(){let good=true;const name=nameInput.value.trim();if(name.length<2){setFieldError('name','Укажите имя (минимум 2 символа).');good=false;}else setFieldError('name','');const digits=phoneInput.value.replace(/\D/g,'');if(digits.length<10||digits.length>15){setFieldError('phone','Введите корректный номер телефона.');good=false;}else setFieldError('phone','');if(!consent.checked){$('#consentError').textContent='Подтвердите согласие для демонстрации.';good=false;}else $('#consentError').textContent='';if(!good){if($('#nameError').textContent)nameInput.focus();else if($('#phoneError').textContent)phoneInput.focus();else consent.focus();}return good;}
+    nameInput.addEventListener('input',()=>setFieldError('name',''));phoneInput.addEventListener('input',()=>setFieldError('phone',''));consent.addEventListener('change',()=>{$('#consentError').textContent='';});
+    form.addEventListener('submit',e=>{e.preventDefault();if(busy)return;if(!validContact())return;busy=true;const submit=$('#submitRequest');submit.disabled=true;submit.textContent='Проверяем данные…';setTimeout(()=>{busy=false;submit.disabled=false;submit.textContent='Проверить заявку';form.hidden=true;$('.form-progress').hidden=true;$('#formResult').hidden=false;$('#resultText').textContent=`Демонстрационная заявка «${selectedKind}» заполнена (${files.length} файл(ов), этап: ${timing}). Данные не отправлены в НОКТА и нигде не сохранены. Для реального расчёта позвоните студии.`;},650);});
+    $('#restartForm').addEventListener('click',()=>{form.reset();files=[];renderFiles();selectedKind='';$$('[data-choice]').forEach(b=>b.setAttribute('aria-pressed','false'));setFieldError('name','');setFieldError('phone','');$('#choiceError').textContent='';$('#consentError').textContent='';filesError.textContent='';timing='Пока изучаю варианты';$('#timingValue').textContent=timing;options.forEach((o,i)=>o.setAttribute('aria-selected',String(i===0)));$('#formResult').hidden=true;form.hidden=false;$('.form-progress').hidden=false;showStep(0);});
+    // Keep room-to-request links functional when project areas are expanded later.
+  })();
+  </script>
+</body>
+</html>
